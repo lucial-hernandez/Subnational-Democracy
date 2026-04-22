@@ -1,0 +1,42 @@
+---
+title: "Untitled"
+format: revealjs
+---
+
+```{r}
+library(tidyverse)
+load('SDI.RData')
+
+# limit to my state 
+df <- data_sdi %>%
+  filter(region_name == 'CENTRO')
+```
+
+# analysis slide
+
+
+```{r}
+# graph dem by region over time
+
+df %>% 
+  ggplot(aes(year, SUR_index_sub_exe,
+             color = state_name))+
+  geom_line()+
+  theme_classic()+
+  labs(
+    color = "State",
+    y = 'Democracy Index'
+  )
+
+
+```
+
+
+
+
+
+
+
+
+
+
